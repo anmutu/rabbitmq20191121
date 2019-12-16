@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	rabbitmq := RabbitMq.NewRabbitMQSimple("duQueueName")
-	rabbitmq.PublishSimple("杰伦的歌大约能治感冒.")
+	rabbitmq := RabbitMq.NewRabbitMQSimple("duQueueName1912161843")
+	rabbitmq.ConsumeSimple()
 	fmt.Println("接收成功！")
 }

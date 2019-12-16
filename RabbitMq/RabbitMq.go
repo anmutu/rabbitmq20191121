@@ -114,10 +114,13 @@ func (r *RabbitMQ) ConsumeSimple() {
 		fmt.Printf("消费者接收消息出现问题:%s", err)
 	}
 
+	forever := make(chan bool)
 	//启用协程处理消息
 	go func() {
 		for d := range msgs {
 			log.Printf("接收到了消息:%s", d.Body)
 		}
 	}()
+	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
+	<-forever
 }
