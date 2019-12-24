@@ -82,6 +82,7 @@ func (r *RabbitMQ) PublishSimple(message string) {
 		})
 }
 
+//直接模式，消费者
 func (r *RabbitMQ) ConsumeSimple() {
 	//第一步,申请队列,如果队列不存在则自动创建,存在则跳过
 	q, err := r.channel.QueueDeclare(
