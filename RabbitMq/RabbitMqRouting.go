@@ -68,7 +68,7 @@ func (r *RabbitMQ) ConsumerRouting() {
 	forever := make(chan bool)
 	go func() {
 		for d := range messages {
-			log.Printf("小杜同学写的路由模式收到消息为：%s", d.Body)
+			log.Printf("小杜同学写的路由模式收到消息为：%s。\n", d.Body)
 		}
 	}()
 	<-forever

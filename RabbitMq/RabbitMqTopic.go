@@ -92,7 +92,7 @@ func (r *RabbitMQ) ConsumerTopic() {
 	forever := make(chan bool)
 	go func() {
 		for d := range messages {
-			log.Printf("小杜同学写的topic模式收到了消息：%s", d.Body)
+			log.Printf("小杜同学写的topic模式收到了消息：%s。\n", d.Body)
 		}
 	}()
 	<-forever

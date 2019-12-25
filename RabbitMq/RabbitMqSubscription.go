@@ -68,7 +68,7 @@ func (r *RabbitMQ) ConsumeSbuscription() {
 		false,
 		nil,
 	)
-	r.failOnErr(err, "订阅模式消费方法中创建创建队列失败")
+	r.failOnErr(err, "订阅模式消费方法中创建创建队列失败。")
 
 	//第三步，绑定队列到交换机中
 	err = r.channel.QueueBind(
