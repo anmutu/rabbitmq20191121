@@ -5,6 +5,11 @@ import (
 	"log"
 )
 
+//rabbitmq的路由模式。
+//主要特点不仅一个消息可以被多个消费者消费还可以由生产端指定消费者。
+//这里相对比订阅模式就多了一个routingkey的设计，也是通过这个来指定消费者的。
+//创建exchange的kind需要是"direct",不然就不是roting模式了。
+
 //创建rabbitmq实例，这里有了routingkey为参数了。
 func NewRabbitMqRouting(exchangeName string, routingKey string) *RabbitMQ {
 	rabbitmq := NewRabbitMQ("", exchangeName, routingKey)
@@ -68,9 +73,8 @@ func (r *RabbitMQ) ConsumerRouting() {
 	forever := make(chan bool)
 	go func() {
 		for d := range messages {
-			log.Printf("小杜同学写的路由模式收到消息为：%s。\n", d.Body)
+			log.Printf("小杜同学写的路由模式(routing模式)收到消息为：%s。\n", d.Body)
 		}
 	}()
 	<-forever
-
 }
