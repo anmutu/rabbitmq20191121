@@ -5,6 +5,11 @@ import (
 	"log"
 )
 
+//topic模式
+//与routing模式不同的是这个exchange的kind是"topic"类型的。
+//topic模式的特别是可以以通配符的形式来指定与之匹配的消费者。
+//"*"表示匹配一个单词。“#”表示匹配多个单词，亦可以是0个。
+
 //创建rabbitmq实例
 func NewRabbitMqTopic(exchangeName string, routingKey string) *RabbitMQ {
 	rabbitmq := NewRabbitMQ("", exchangeName, routingKey)
