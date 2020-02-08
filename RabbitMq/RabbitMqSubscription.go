@@ -5,6 +5,11 @@ import (
 	"github.com/streadway/amqp"
 )
 
+//这里是订阅模式的相关代码。
+//订阅模式需要用到exchange。
+//因为其过程就是：由生产者将消息发送到exchange(交换机）里，然后exchange通过一系列的规则发送到队列上，然后由绑定对应的消费者进行消息。
+//另外定义exchange时，其kind类型一定要是"fanout",这样才是广播类型。
+
 //获取订阅模式下的rabbitmq的实例
 func NewRabbitMqSubscription(exchangeName string) *RabbitMQ {
 	//创建rabbitmq实例
@@ -24,7 +29,7 @@ func (r *RabbitMQ) PublishSubscription(message string) {
 	//第一步，尝试连接交换机
 	err := r.channel.ExchangeDeclare(
 		r.ExChange,
-		"fanout",
+		"fanout", //这里一定要设计为"fanout"也就是广播类型。
 		true,
 		false,
 		false,
