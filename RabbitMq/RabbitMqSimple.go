@@ -6,6 +6,10 @@ import (
 	"log"
 )
 
+//01和02.这里是rabbitmq最简单的两个模式：simple模式以及work模式。
+//simple模式也就是由生产者将消息送到队列里，然后由消费者到队列里取出来消费。
+//另外这里的代码work模式也是相同的，也是可以得用的。两个的差别是：work模式在simple模式的基础上多了消费者而已。
+
 //创建简单模式下的实例，只需要queueName这个参数，其中exchange是默认的，key则不需要。
 func NewRabbitMQSimple(queueName string) *RabbitMQ {
 	rabbitmq := NewRabbitMQ(queueName, "", "")
@@ -83,7 +87,7 @@ func (r *RabbitMQ) ConsumeSimple() {
 	//启用协程处理消息
 	go func() {
 		for d := range msgs {
-			log.Printf("小杜同学写的Simple模式接收到了消息:%s。\n", d.Body)
+			log.Printf("小杜同学写的Simple(或者Work)模式接收到了消息:%s\n", d.Body)
 		}
 	}()
 	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")

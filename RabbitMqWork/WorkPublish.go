@@ -10,10 +10,8 @@ import (
 func main() {
 	rabbitmq := RabbitMq.NewRabbitMQSimple("duQueueName191224")
 	for i := 0; i < 100; i++ {
-		rabbitmq.PublishSimple("hello du message" + strconv.Itoa(i))
+		rabbitmq.PublishSimple("hello du message" + strconv.Itoa(i) + "---来自work模式")
 		time.Sleep(1 * time.Second)
-		//fmt.Printf("生产了%s个消息", )
-		fmt.Println(i)
+		fmt.Printf("work模式，共产生了%d条消息\n", i)
 	}
-
 }

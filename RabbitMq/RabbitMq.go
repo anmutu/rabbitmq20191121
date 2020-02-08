@@ -5,6 +5,8 @@ import (
 	"github.com/streadway/amqp"
 )
 
+//这里主要是RabbitMQ的一些信息。包括其结构体和函数。
+
 //连接信息
 const MQURL = "amqp://du:du@129.211.78.6:5672/dudevirtualhost"
 
