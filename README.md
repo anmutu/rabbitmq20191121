@@ -1,4 +1,4 @@
-#### 这里用golang实现了rabbigmq的一种模式
+#### 这里用golang实现了rabbigmq的五种模式
 1. simple模式
 2. work模式
 3. 订阅模式
