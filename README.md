@@ -18,6 +18,9 @@
  每个模式里都有其对应的生产者和消费者，分别run起来里面的生产者的go文件和消费者的go文件就可以看到效果了。
  如果你有自己的rabbitmq也可以改成自己的ip和对应的exchangeName等信息。
 
+#### 博客链接
+博客园 [golang实现rabbitmq的五种模式](https://www.cnblogs.com/anmutu/p/golang.html)
+
    
 
    
